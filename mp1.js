@@ -1,6 +1,7 @@
 /**
- * @file MP1: Dancing Illini Logo and Custom Animation
- * @author Felipe Arias <felipea2@illinois.edu>  
+ * @file Custom Animation
+ * @author Felipe Arias <felipea2@illinois.edu>
+ * Based on code from CS 418 @ UIUC by Eric Shaffer
  */
 
 /** @global The WebGL context */
@@ -147,169 +148,6 @@ function setupShaders() {
 
 
 /**
- * Populate vertex buffer with data for UofI logo
- */
-function loadVertices() {
-    console.log("Frame",defAngle);
-//Generate the vertex positions    
-  vertexPositionBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
-    
-  // Vertices for UofI Logo    
-  var triangleVertices = [
-      
-      //Orange part of logo
-        -0.3,  0.4,  0.0,
-        -0.3, -0.4,  0.0,
-         0.3,  0.4,  0.0,
-
-         0.3,  0.4,  0.0,
-         0.3, -0.4,  0.0,
-        -0.3, -0.4,  0.0,
-
-        -0.3, -0.4,  0.0,
-        -0.6, -0.4,  0.0,
-        -0.6, -0.7,  0.0,
-
-        -0.3, -0.4,  0.0,
-        -0.6, -0.7,  0.0,
-         0.6, -0.7,  0.0,
-
-         0.6, -0.7,  0.0,
-         0.6, -0.4,  0.0,
-         0.3, -0.4,  0.0,
-
-         0.6, -0.7,  0.0,
-        -0.3, -0.4,  0.0,
-         0.3, -0.4,  0.0,
-      
-        -0.3,  0.4,  0.0,
-        -0.6,  0.4,  0.0,
-        -0.6,  0.7,  0.0,
-            
-        -0.3,  0.4,  0.0,
-         0.3,  0.4,  0.0,
-        -0.6,  0.7,  0.0,
-      
-         0.6,  0.7,  0.0,
-         0.3,  0.4,  0.0,
-        -0.6,  0.7,  0.0,
-      
-         0.6,  0.7,  0.0,
-         0.3,  0.4,  0.0,
-         0.6,  0.4,  0.0,
-      
-      
-        //Blue part of logo
-      
-        -0.3,  0.4,  0.0,
-        -0.4,  0.3,  0.0,
-        -0.6,  0.4,  0.0,
-      
-         0.3,  0.4,  0.0,
-         0.4,  0.3,  0.0,
-         0.6,  0.4,  0.0,
-      
-         0.3, -0.4,  0.0,
-         0.4, -0.3,  0.0,
-         0.6, -0.4,  0.0,
-      
-        -0.3, -0.4,  0.0,
-        -0.4, -0.3,  0.0,
-        -0.6, -0.4,  0.0,
-      
-        -0.7,  0.3,  0.0,
-        -0.4,  0.3,  0.0,
-        -0.6,  0.4,  0.0,
-      
-         0.7,  0.3,  0.0,
-         0.4,  0.3,  0.0,
-         0.6,  0.4,  0.0,
-      
-         0.7, -0.3,  0.0,
-         0.4, -0.3,  0.0,
-         0.6, -0.4,  0.0,
-      
-        -0.7, -0.3,  0.0,
-        -0.4, -0.3,  0.0,
-        -0.6, -0.4,  0.0,
-    
-        -0.7,  0.3,  0.0,
-        -0.6,  0.7,  0.0,
-        -0.6,  0.4,  0.0,
-       
-         0.7,  0.3,  0.0,
-         0.6,  0.7,  0.0,
-         0.6,  0.4,  0.0,
-      
-        -0.7, -0.3,  0.0,
-        -0.6, -0.7,  0.0,
-        -0.6, -0.4,  0.0,
-      
-         0.7, -0.3,  0.0,
-         0.6, -0.7,  0.0,
-         0.6, -0.4,  0.0,
-      
-        -0.7,  0.3,  0.0,
-        -0.6,  0.7,  0.0,
-        -0.7,  0.8,  0.0,
-      
-         0.7,  0.3,  0.0,
-         0.6,  0.7,  0.0,
-         0.7,  0.8,  0.0,
-      
-         0.7, -0.3,  0.0,
-         0.6, -0.7,  0.0,
-         0.7, -0.8,  0.0,
-      
-        -0.7, -0.3,  0.0,
-        -0.6, -0.7,  0.0,
-        -0.7, -0.8,  0.0,
-      
-         0.6,  0.7,  0.0,
-        -0.6,  0.7,  0.0,
-        -0.7,  0.8,  0.0,
-      
-         0.6,  -0.7,  0.0,
-        -0.6,  -0.7,  0.0,
-        -0.7,  -0.8,  0.0,
-      
-         0.6,  0.7,  0.0,
-         0.7,  0.8,  0.0,
-        -0.7,  0.8,  0.0,
-      
-         0.6, -0.7,  0.0,
-         0.7, -0.8,  0.0,
-        -0.7, -0.8,  0.0,
-      
-        -0.3,  0.4,  0.0,
-        -0.4,  0.3,  0.0,
-        -0.4, -0.3,  0.0,
-      
-         0.3,  0.4,  0.0,
-         0.4,  0.3,  0.0,
-         0.4, -0.3,  0.0,
-      
-        -0.3,  0.4,  0.0,
-        -0.3, -0.4,  0.0,
-        -0.4, -0.3,  0.0,
-      
-         0.3,  0.4,  0.0,
-         0.3, -0.4,  0.0,
-         0.4, -0.3,  0.0
-  ];
-    
-  // Add a varying offset to vertices of margin of UofI Logo
-  for (i=30;i<102;i++){
-      triangleVertices[(i*3)+2] += 0.00005+Math.cos(degToRad(defAngle));
-  }
-    
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(triangleVertices), gl.DYNAMIC_DRAW);
-  vertexPositionBuffer.itemSize = 3;
-  vertexPositionBuffer.numberOfItems = 102;
-}
-
-/**
  * Calculate the deformation for a given vertex on the circle
  @param {number} x coordinate of circle boundary point
  @param {number} y coordinate of circle boundary point
@@ -355,126 +193,6 @@ function loadCustomVertices(numVertices) {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(triangleVertices), gl.DYNAMIC_DRAW);
   vertexPositionBuffer.itemSize = 3;
   vertexPositionBuffer.numberOfItems = numVertices+2;
-}
-
-/**
- * Populate color buffer with data for UofI Logo
- */
-function loadColors() {
-  vertexColorBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexColorBuffer);
-    
-  // Colors for UofI Logo
-  var colors = [
-        //Orange vertices
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        1, 0.54902, 0, 1.0,
-        //Blue vertices 
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,  
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0,
-        0, 0, 0.501961, 1.0  
-    ];
-      
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.DYNAMIC_DRAW);
-  vertexColorBuffer.itemSize = 4;
-  vertexColorBuffer.numItems = 102;  
 }
 
 /**
@@ -525,33 +243,25 @@ function loadCustomColors(numVertices) {
 function setupBuffers() {
     
   //Generate the vertex positions    
-  loadVertices();
+  loadCustomVertices();
 
   //Generate the vertex colors
-  loadColors();
+  loadCustomColors();
 }
 
 /**
  * Draw call that applies matrix transformations to model and draws model in frame
-  @param {applyTranformations} boolean that tells draw function whether to apply affine transformations for first animation or not
  */
-function draw(applyTransformations) { 
+function draw() { 
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); 
 
   mat4.identity(mvMatrix);
   mat4.identity(pMatrix);
     
-  //Apply affine transformation for animation 1
-  if (applyTransformations){    
-    mat4.scale(mvMatrix, mvMatrix, vec3.fromValues(0.75,0.75,0));
-    mat4.rotateY(mvMatrix, mvMatrix, degToRad(defAngle));
-    mat4.rotateZ(mvMatrix, mvMatrix, degToRad(defAngle));
-  }
-  //Rotate for animation 2
-  else{
-    mat4.rotateZ(mvMatrix, mvMatrix, degToRad(-90));
-  }
+
+  mat4.rotateZ(mvMatrix, mvMatrix, degToRad(-90));
+  
     
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
   gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
@@ -563,12 +273,9 @@ function draw(applyTransformations) {
   setMatrixUniforms();
     
   //depending on which animation, use a traingle fan or a mesh
-  if (applyTransformations){
-    gl.drawArrays(gl.TRIANGLES, 0, vertexPositionBuffer.numberOfItems);
-  }
-  else{
-    gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexPositionBuffer.numberOfItems);
-  }
+
+
+  gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexPositionBuffer.numberOfItems);
 }
 
 /**
@@ -597,18 +304,10 @@ function animate() {
 function tick() {
     
     requestAnimFrame(tick);
-    
-    //Check which animation is checked 
-    if (document.getElementById('a1').checked) {
-        loadVertices();
-        loadColors();
-        draw(true);
-    }
-    else{
-        loadCustomVertices(numCircleVerts);
-        loadCustomColors(numCircleVerts);
-        draw(false);
-    }
+
+    loadCustomVertices(numCircleVerts);
+    loadCustomColors(numCircleVerts);
+    draw(false);
     
     animate();
 }
